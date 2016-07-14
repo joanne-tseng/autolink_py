@@ -9,14 +9,14 @@ setup(
     name='autolink_py',
     version=__version__,
     # Your name & email here
-    author='',
-    author_email='',
+    author='Tzeng',
+    author_email='tseng0211@gmail.com',
     # If you had autolink_py.tests, you would also include that in this list
     packages=find_packages(),
     # Any executable scripts, typically in 'bin'. E.g 'bin/do-something.py'
     scripts=[],
     # REQUIRED: Your project's URL
-    url='',
+    url='https://github.com/joanne-tseng/autolink_py',
     # Put your license here. See LICENSE.txt for more information
     license='',
     # Put a nice one-liner description here
