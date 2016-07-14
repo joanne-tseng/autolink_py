@@ -1,4 +1,4 @@
-## autolink_py
+# autolink_py
 
 The Repo extracts url/email substring from given string and converts it into
 links(or any customized format).Currenty, we apply HTML and MARKDOWN replacement
@@ -44,9 +44,10 @@ new_text = al.linkify(text, replaced_type='MARKDOWN')
 
 - replace URL with customized format
 
-example: 'http://google.com' -> '<http://google.com>'
-
 ```python
+
+# example: 'http://google.com' -> '<http://google.com>'
+
 from autolink_py.core import AutoLinker
 
 class NewAutoLinker(AutoLinker):
@@ -60,7 +61,9 @@ class NewAutoLinker(AutoLinker):
 text = 'http://google.com'
 
 nal = NewAutoLinker()
-nal.linkify(text)
+new_text = nal.linkify(text)
+
+# new_text -> '<http://google.com>'
 
 ```
 
