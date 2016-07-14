@@ -1,19 +1,18 @@
-autolink_py
-===========================================================
+## autolink_py
 
-The Repo extracts url/email substring from given string and converts it into links(or any customized format)
+The Repo extracts url/email substring from given string and converts it into
+links(or any customized format).Currenty, we apply HTML and MARKDOWN replacement
+type, and also apply easy way to customize the replacement.
 
-Currenty, we apply HTML and MARKDOWN replacement type, and also apply easy way to customize the replacement.
+## Installation
 
-Installation
-------------
+Installation using pip:
 
-Installation using pip::
+```
+pip install autolink_py
+```
 
-    pip install autolink_py
-
-Usage
------
+##Usage
 
 - replace URL with html format
 
@@ -63,6 +62,7 @@ text = 'http://google.com'
 nal = NewAutoLinker()
 nal.linkify(text)
 
+```
 
 Credits
 -------
