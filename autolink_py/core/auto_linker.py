@@ -58,18 +58,19 @@ class AutoLinker(object):
             url = url[:-len(punct)]
 
         if re.search(proto_re, url):
-            url = url
+            link = text = url
         else:
-            url = instance.proto + url
+            link = instance.proto + url
+            text = url
 
         if self.replaced_type == ReplaceType.HTML:
-            replaced_url = self.replace_url(url)
+            replaced_url = self.replace_url(text, link)
 
         elif self.replaced_type == ReplaceType.MARKDOWN:
-            replaced_url = self.replace_url(url)
+            replaced_url = self.replace_url(text, link)
 
         else:
-            replaced_url = self.replace_url(url)
+            replaced_url = self.replace_url(text, link)
 
         repl = u'{0!s}{1!s}{2!s}{3!s}'
         return repl.format(opening, replaced_url, punct, closing)
@@ -83,7 +84,7 @@ class AutoLinker(object):
         else:
             return '', s, ''
 
-    def replace_url(self, url):
+    def replace_url(self, text, url):
 
         """
         replace url into customize format. If you want to customize new format
@@ -94,11 +95,11 @@ class AutoLinker(object):
         if self.replaced_type == ReplaceType.HTML:
 
             href = escape_url(url)
-            return u'<a href="{0!}">{1}</a>'.format(href, url)
+            return u'<a href="{0!}">{1}</a>'.format(href, text)
 
         elif self.replaced_type == ReplaceType.MARKDOWN:
 
-            return u'[{0}]({0})'.format(url)
+            return u'[{0}]({1})'.format(text, url)
 
         else:
             raise NotImplementedError
