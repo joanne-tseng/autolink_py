@@ -3,3 +3,7 @@ Change-log for autolink_py.
 This file will be added to as part of each release
 
 ----
+
+0.2.0
+-----
+- Replace url by given origin url text and complete url text with protocol
