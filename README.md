@@ -24,7 +24,7 @@ text = 'This website is google.com'
 al = AutoLinker()
 new_text = al.linkify(text, replaced_type='HTML')
 
-# new_text -> 'This website is <a href="http://google.com">http://google.com</a>'
+# new_text -> 'This website is <a href="http://google.com">google.com</a>'
 
 ```
 
@@ -38,7 +38,7 @@ text = 'This website is google.com'
 al = AutoLinker()
 new_text = al.linkify(text, replaced_type='MARKDOWN')
 
-# new_text -> 'This website is [http://google.com](http://google.com)'
+# new_text -> 'This website is [google.com](http://google.com)'
 
 ```
 
@@ -46,24 +46,30 @@ new_text = al.linkify(text, replaced_type='MARKDOWN')
 
 ```python
 
-# example: 'http://google.com' -> '<http://google.com>'
+# example: 'google.com' -> '<google.com><http://google.com>'
 
 from autolink_py.core import AutoLinker
 
 class NewAutoLinker(AutoLinker):
 
-    def replace_url(self.url):
+    def replace_url(self, text, url):
 
-        # implement replace_url to customize the format you need.
+        '''
+        implement replace_url to customize the format you need.
 
-        return u'<{}>'.format(url)
+        Params:
+            text: url text that shown originally
+            url: newly generated link including complete protocal based on text.
+        '''
 
-text = 'http://google.com'
+        return u'<{0}><{1}>'.format(text, url)
+
+text = 'The website is google.com'
 
 nal = NewAutoLinker()
 new_text = nal.linkify(text)
 
-# new_text -> '<http://google.com>'
+# new_text -> 'The website is <google.com><http://google.com>'
 
 ```
 
