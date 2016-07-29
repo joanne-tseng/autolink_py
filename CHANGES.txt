@@ -4,6 +4,10 @@ This file will be added to as part of each release
 
 ----
 
+0.2.1
+-----
+- Remove error signal when replacing url
+
 0.2.0
 -----
 - Replace url by given origin url text and complete url text with protocol
