@@ -95,7 +95,7 @@ class AutoLinker(object):
         if self.replaced_type == ReplaceType.HTML:
 
             href = escape_url(url)
-            return u'<a href="{0!}">{1}</a>'.format(href, text)
+            return u'<a href="{0}">{1}</a>'.format(href, text)
 
         elif self.replaced_type == ReplaceType.MARKDOWN:
 
